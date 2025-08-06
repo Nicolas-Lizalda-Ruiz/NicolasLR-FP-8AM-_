@@ -18,6 +18,7 @@ namespace _1.InicioVisualStudio
             Console.Write("piiiipipiiiii\n");
             //peepefart = "poopyyfarf";
             //pi = "3.1416"; no puedo acher nada (ekisdent)
+            // r
 
             Console.Write("\t" + peepefart + " " + lyricsPart1 + " " + pi);
 
