@@ -112,6 +112,26 @@ namespace _2.Operadores
             bool expresion5 = !expresion3 || expresion4;
             Console.WriteLine($"expresion1 = {expresion1} | expresion2 = {expresion2} | expresion3 = {expresion3} | expresion4 = {expresion4} | expresion5 ={expresion5} ");
 
+            //operadores de comparación
+            Console.WriteLine("---------------------------------------");
+
+            bool expresion6 = 5 > 5; //Mayor que > | menor que <
+            Console.WriteLine(expresion6);
+
+            bool expresion7 = 6 == 6; //Operador de igualdad ==
+            Console.WriteLine(expresion7);
+
+            bool expresion8 = 4 != 5; //Operador diferente a !=
+            Console.WriteLine(expresion8);
+
+            bool expresion9 = 5 > 4 && 6 != 6;
+            Console.WriteLine(expresion9);
+
+            bool expresion10 = 10 > 9 || !expresion9;
+            Console.WriteLine(expresion10);
+
+
+
         }
     }
 }
