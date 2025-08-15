@@ -11,7 +11,7 @@ namespace _3.Condicionales_
     {
         static void Main(string[] args)
         {
-            /*
+            
             //Condicionales simples
             string nombrePersona1 = "";
             float sueldo = 0;
@@ -31,7 +31,7 @@ namespace _3.Condicionales_
             {
                 Console.WriteLine($"usuario {nombrePersona1}, tu sueldo es menor que 3000, por ende, no debes abonar impuestos");
             }
-            */
+            
             Console.WriteLine("----------------------------------------------");
             //2. Crea un algoritmo que lea la edad de un usuario, si el usuario es mayor de 18, se debe mostrar el siguiente mensaje: “Bienvenido a mi sitio web”. 
 
@@ -60,7 +60,7 @@ namespace _3.Condicionales_
             /* Crear un algoritmo que permita ingresar el nombre y el sueldo de una persona, si el sueldo supera los 3000 pesos mostrar el mensaje en pantalla con el nombre de la persona, indicando que debe abonar impuestos. De lo contrario mostrar el mensaje “Persona exenta de impuestos”.*/
 
             string nombrePersona = "";
-            int sueldo = 0;
+            int sueldo1 = 0;
 
             Console.WriteLine("Usuario, ingrese su nombre: ");
             Console.ReadLine();
