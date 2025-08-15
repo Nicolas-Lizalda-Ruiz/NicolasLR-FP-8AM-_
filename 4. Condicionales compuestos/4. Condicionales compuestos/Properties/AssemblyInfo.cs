@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada a un ensamblado.
-[assembly: AssemblyTitle("3. Condicionales")]
+[assembly: AssemblyTitle("4. Condicionales compuestos")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("3. Condicionales")]
+[assembly: AssemblyProduct("4. Condicionales compuestos")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("630d4a69-06c9-45d0-9248-4225e53d6b52")]
+[assembly: Guid("83a52a09-b856-4a6b-a093-51883c08ae16")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //

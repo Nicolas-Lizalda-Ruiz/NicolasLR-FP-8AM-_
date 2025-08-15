@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,7 +40,7 @@ namespace _3.Condicionales_
             Console.WriteLine("Ingrese su edad antes de entrar al sitio: ");
             edad = Convert.ToInt32(Console.ReadLine());
 
-            if (edad < 18)
+            if (edad < 18 && edad > 0)
             {
                 Console.WriteLine("No estas permitido a entrar al sitio, eres menor de edad");
             }
@@ -53,6 +54,16 @@ namespace _3.Condicionales_
             {
                 Console.WriteLine("ingresa una edad válida porfavor");
             }
+
+            Console.WriteLine("----------------------------------------------");
+
+            /* Crear un algoritmo que permita ingresar el nombre y el sueldo de una persona, si el sueldo supera los 3000 pesos mostrar el mensaje en pantalla con el nombre de la persona, indicando que debe abonar impuestos. De lo contrario mostrar el mensaje “Persona exenta de impuestos”.*/
+
+            string nombrePersona = "";
+            int sueldo = 0;
+
+            Console.WriteLine("Usuario, ingrese su nombre: ");
+            Console.ReadLine();
         }
     }
 }
