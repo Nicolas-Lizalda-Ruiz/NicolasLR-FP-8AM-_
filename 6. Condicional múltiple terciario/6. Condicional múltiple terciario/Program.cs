@@ -187,6 +187,8 @@ namespace _6.Condicional_múltiple_terciario
                     break;
             }
             */
+
+            //.
         }
     }
 }
