@@ -17,19 +17,26 @@ namespace _10.while_loops_2
             int contadorFactorial = 1;
             int acumuladorFactorial = 1;
 
-            Console.WriteLine("Usuario, digita un número. Este será calculado en su factorial, oséa, se multiplicara por cada número de 1 hasta la cantidad del número elegido entre sí");
+            Console.WriteLine("Usuario, digita un número. Este será calculado en su factorial, oséa, se multiplicara por cada número de 1 hasta la cantidad del número elegido entre sí. No se permiten números negativos");
             numeroFactorial = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||");
 
-            while (contadorFactorial <= numeroFactorial)
+            if (numeroFactorial > 0)
             {
-                acumuladorFactorial *= contadorFactorial;
-                Console.WriteLine($"{acumuladorFactorial/contadorFactorial} * {contadorFactorial} = {(acumuladorFactorial/contadorFactorial) * contadorFactorial} ");
-                contadorFactorial++;
-            }
+                while (contadorFactorial <= numeroFactorial)
+                {
+                    acumuladorFactorial *= contadorFactorial;
+                    Console.WriteLine($"{acumuladorFactorial / contadorFactorial} * {contadorFactorial} = {(acumuladorFactorial / contadorFactorial) * contadorFactorial} ");
+                    contadorFactorial++;
+                }
 
-            Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||");
-            Console.WriteLine("El número digitado con el proceso factorial sería: " + acumuladorFactorial);
+                Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||");
+                Console.WriteLine("El número digitado con el proceso factorial sería: " + acumuladorFactorial);
+            }
+            else
+            {
+                Console.WriteLine("Ingresa un número valido, porfavor.");
+            }
         }
     }
 }
