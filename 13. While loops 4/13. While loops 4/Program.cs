@@ -14,34 +14,38 @@ namespace _13.While_loops_4
 
             float numeroIngresado = 0;          
             Char mostradorPantalla = ' ';
+            int numeroIngresadoPositivos = 0;
+            int numeroIngresadoNegatios = 0;
+            int numeroIngresadoIgualA0 = 0;
 
-            Console.WriteLine("Usuario, ingresa la cantidad de numeros que deseas. Podrás elegir los que quieras si pones y te muestra todos los numeros mayores a 0, iguales a 0 y menores a 0 y si ingresas cualqier letra al final cuando se pide se reinicia el programa pero si pones 'I' se finaliza el proceso");
+            Console.WriteLine("Usuario, ingresa la cantidad de numeros que deseas. Mientras los ingresas se contará acumilativamente cuales son mayores a 0, iguales a 0 o menores a 0");
+            Console.WriteLine("");
 
-            while (mostradorPantalla !=  'I')
+            while (mostradorPantalla != 'I')
             {
-                Console.WriteLine("Usuario, ingresa un primer número: ");
+                Console.WriteLine("Usuario, ingresa un número: ");
                 numeroIngresado = float.Parse(Console.ReadLine());
 
                 if (numeroIngresado == 0)
                 {
-                    Console.WriteLine($"El numero {numeroIngresado} es igual a 0");
-                    Console.WriteLine($"-----------------------------------------------------------");
+                    numeroIngresadoIgualA0++;
                 }
-                else if (numeroIngresado > 1)
+                else if (numeroIngresado > 0)
                 {
-                    Console.WriteLine($"El numero {numeroIngresado} es positivo");
-                    Console.WriteLine($"-----------------------------------------------------------");
+                    numeroIngresadoPositivos++;
                 }
-                else if (numeroIngresado < 2)
+                else if (numeroIngresado < 0)
                 {
-                    Console.WriteLine($"El numero {numeroIngresado} es negativo");
-                    Console.WriteLine($"-----------------------------------------------------------");
+                    numeroIngresadoNegatios++;
                 }
-                Console.WriteLine($"Ingresa cualquier letra si quieres reinicar el programa. Si ingresas 'I' se finaliza");
-                mostradorPantalla = char.Parse(Console.ReadLine());
-                Console.WriteLine($"-----------------------------------------------------------");
+
+                Console.WriteLine("La cantidad de numeros mayores a 0 son: " + numeroIngresadoPositivos);
+                Console.WriteLine("La cantidad de numeros menores a 0 son: " + numeroIngresadoNegatios);
+                Console.WriteLine("La cantidad de numeros iguales a 0 son: " + numeroIngresadoIgualA0);
+                Console.WriteLine("");
+                Console.WriteLine("Ingresa otro número");
+                Console.WriteLine("");
             }
-            Console.WriteLine($"Has finalizado el programa");
         }
     }
 }
