@@ -17,7 +17,7 @@ namespace _12.While_loops_3
 
             while (acumulador < 99)
             {
-                acumulador = acumulador + 2;
+                acumulador += 2;
                 suma += acumulador;
 
                 if (suma > 1)
