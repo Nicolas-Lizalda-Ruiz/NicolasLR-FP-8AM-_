@@ -10,6 +10,8 @@ namespace _19.Do_while__3_
     {
         static void Main(string[] args)
         {
+            //En un grupo de 100 alumnos, se desea saber cuántos de los estudiantes son hombres y cuántos son mujeres, además se desea saber cuántos son mayores de edad y cuántos no. 
+
             int edad = 0;
             int cantidadHombres = 0;
             int cantidadMujeres = 0;
