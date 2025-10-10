@@ -60,7 +60,6 @@ namespace Parcial_3_Arreglos_NicolasLR000576828
             {
                 Console.Write($"|{tipoDeColumna[i]}|");
             }
- 
 
             Console.WriteLine();
 
