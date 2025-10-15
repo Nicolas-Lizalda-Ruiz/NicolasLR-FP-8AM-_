@@ -12,21 +12,20 @@ namespace _32.Modulos
 
         static void Main()
         {
-            int contadorSumas = 0;
-            int contadorFinalizador = 0;
             MostrarMenu();
         }
 
         static void MostrarMenu()
         {
             char eleccion = ' ';
-            char finalizador = ' ';
 
             Console.WriteLine("Elige una de las siguientes tipo de operaciones con la letra indicada para comenzar a realizar operaciones de ese tipo: ");
             Console.WriteLine("Suma: '+'");
             Console.WriteLine("Resta: '-'");
             Console.WriteLine("Multiplicacion: '*'");
             Console.WriteLine("Divison: '/'");
+            Console.WriteLine("Para finalizar el programa, digita cualquier otra cosa que no sea lo anterior");
+            Console.Write("Elige: ");
             eleccion = char.Parse(Console.ReadLine());
 
             RealizarOperaciones(eleccion);
@@ -36,79 +35,207 @@ namespace _32.Modulos
         {
             float numeroDigitado = 0;
             float numeroExistente = 0;
-
-            switch (eleccion)
+            bool terminar = false;
+            do
             {
-                case '+':
-                    LogicaCiclica(numeroDigitado, numeroExistente, eleccion);
-                    break;
-                default:
-                    Console.WriteLine();
-                    Console.WriteLine("Ha terminado el programa.");
-                    break;
-            }
+                switch (eleccion)
+                {
+                    case '+':
+                        eleccion = Suma(numeroDigitado, numeroExistente, eleccion);
+                        break;
+
+                    case '-':
+                        eleccion = Resta(numeroDigitado, numeroExistente, eleccion);
+                        break;
+
+                    case '*':
+                        eleccion = Multiplicacion(numeroDigitado, numeroExistente, eleccion);
+                        break;
+
+                    case '/':
+                        eleccion = Division(numeroDigitado, numeroExistente, eleccion);
+                        break;
+
+                    default:
+                        terminar = true;
+                        break;
+                }
+            } while (terminar == false);
+            Console.Clear();
+            Console.WriteLine("||--------------Programa finalizado--------------||");
         }
 
-        static void LogicaCiclica(float numeroDigitado, float numeroExistente, char eleccion)
-        {
-            char finalizador = ' ';
 
-            switch (eleccion)
+        static char Suma(float numeroDigitado, float numeroExistente, char eleccion)
+        {
+            Console.Clear();
+            int contador = 0;
+            char cambiar = ' ';
+            do
             {
-                case '+':
-                    do
+                Console.Write($"Ingresa un numero para sumar a {numeroExistente}: +");
+                numeroDigitado = float.Parse(Console.ReadLine());
+
+                Console.WriteLine();
+
+                numeroExistente += numeroDigitado;
+                Console.WriteLine($"{Math.Abs(numeroExistente - numeroDigitado)} + {numeroDigitado} = {numeroExistente}");
+                contador++;
+
+                Console.WriteLine();
+
+                if (contador > 1)
+                {
+                    Console.WriteLine($"Puedes seguir sumando a este mismo numero");
+                    Console.Write("Quieres cambiar de operacion? 'S' es si | 'N' es no: ");
+                    cambiar = char.Parse(Console.ReadLine());
+
+                    if (cambiar == 'S')
                     {
-                        LeerNumero(numeroDigitado);
-                        numeroExistente += Suma(numeroDigitado, numeroExistente);
-                        Cambiar(eleccion);
-                    } while (finalizador == '+');
-                    break;
-            }
+                        eleccion = Cambiar(eleccion);
+                    }
+                    else if (cambiar == 'N')
+                    {
+                        Console.Clear();
+                    }
+                }
+            } while (eleccion == '+');
+            return eleccion;
         }
 
-        static float LeerNumero(float numero)
+        static char Resta(float numeroDigitado, float numeroExistente, char eleccion)
         {
-            Console.Write("Digita un numero: ");
-            numero = float.Parse(Console.ReadLine());
-            return numero;
+            Console.Clear();
+            char cambiar = ' ';
+            do
+            {
+                Console.Write($"Ingresa un primer numero que será restado por otro: ");
+                numeroDigitado = float.Parse(Console.ReadLine());
+
+                Console.Write($"Ingresa un segundo numero que restará el anterior: -");
+                numeroExistente = float.Parse(Console.ReadLine());
+
+                Console.WriteLine();
+
+                Console.WriteLine($"{numeroDigitado} - {numeroExistente} = {numeroDigitado - numeroExistente}");
+
+                Console.WriteLine();
+
+                Console.Write("Quieres cambiar de operacion? 'S' es si | 'N' es no: ");
+                cambiar = char.Parse(Console.ReadLine());
+
+                if (cambiar == 'S')
+                {
+                    eleccion = Cambiar(eleccion);
+                    Console.WriteLine(eleccion);
+                }
+                else if (cambiar == 'N')
+                {
+                    Console.Clear();
+                }
+            } while (eleccion == '-');
+            return eleccion;
         }
 
-        static float Suma(float numero, float numeroExistente)
+        static char Multiplicacion(float numeroDigitado, float numeroExistente, char eleccion)
         {
-            numeroExistente += numero; 
-            return numeroExistente;
+            Console.Clear();
+            int contador = 0;
+            char cambiar = ' ';
+            do
+            {
+                if (contador == 0)
+                {
+                    Console.Write($"Ingresa un primer numero que será multiplicado por otro: ");
+                    numeroDigitado = float.Parse(Console.ReadLine());
+
+                    Console.Write($"Ingresa un segundo numero que multiplicará el anterior: *");
+                    numeroExistente = float.Parse(Console.ReadLine());
+                }
+                else
+                {
+                    Console.WriteLine($"Estas multiplicando a {numeroExistente}");
+
+                    Console.Write($"Ingresa un segundo numero que multiplicará el anterior: *");
+                    numeroDigitado = float.Parse(Console.ReadLine());
+                }
+
+                Console.WriteLine();
+
+                numeroExistente *= numeroDigitado;
+                Console.WriteLine($"{numeroDigitado} * {numeroExistente / numeroDigitado} = {numeroExistente}");
+                contador++;
+
+                Console.WriteLine();
+
+                if (contador > 1)
+                {
+                    Console.WriteLine($"Puedes seguir multiplicando a este mismo numero");
+                    Console.Write("Quieres cambiar de operacion? 'S' es si | 'N' es no: ");
+                    cambiar = char.Parse(Console.ReadLine());
+
+                    if (cambiar == 'S')
+                    {
+                        eleccion = Cambiar(eleccion);
+                    }
+                    else if (cambiar == 'N')
+                    {
+                        Console.Clear();
+                    }
+                }
+            } while (eleccion == '*');
+            return eleccion;
         }
 
-        static void Cambiar(char eleccion)
+        static char Division(float numeroDigitado, float numeroExistente, char eleccion)
         {
-            Console.WriteLine("Deseas cambiar de operación?");
-            Console.WriteLine("No = N");
-            Console.WriteLine("Si = S");
-            Console.WriteLine("Elige: ");
+            Console.Clear();
+            int contador = 0;
+            char cambiar = ' ';
+            do
+            {
+                Console.Write($"Ingresa un primer numero que será dividido por otro: ");
+                numeroDigitado = float.Parse(Console.ReadLine());
+
+                Console.Write($"Ingresa un segundo numero que dividirá el anterior: *");
+                numeroExistente = float.Parse(Console.ReadLine());
+
+                Console.WriteLine();
+
+                numeroDigitado /= numeroExistente;
+                Console.WriteLine($"{numeroDigitado*numeroExistente} / {numeroExistente} = {numeroDigitado}");
+                contador++;
+
+                Console.WriteLine();
+
+                    Console.WriteLine($"Puedes seguir multiplicando a este mismo numero");
+                    Console.Write("Quieres cambiar de operacion? 'S' es si | 'N' es no: ");
+                    cambiar = char.Parse(Console.ReadLine());
+
+                    if (cambiar == 'S')
+                    {
+                        eleccion = Cambiar(eleccion);
+                    }
+                    else if (cambiar == 'N')
+                    {
+                        Console.Clear();
+                    }
+            } while (eleccion == '/');
+            return eleccion;
+        }
+
+        static char Cambiar(char eleccion)
+        {
+            Console.Clear();
+            Console.WriteLine("Puedes cambiar a resta digitando '-'");
+            Console.WriteLine("Puedes cambiar a Multiplicacion digitando '*'");
+            Console.WriteLine("Puedes cambiar a division digitando '/'");
+            Console.WriteLine("Puedes cambiar a suma digitando '+'");
+            Console.WriteLine("Para quedarte en tu operacion, digita el mismo tipo de signo del tipo de operacion");
+            Console.WriteLine("Puedes finalizar el programa digitando cualquier cosa que no sea lo anterior");
+            Console.Write("Elige: ");
             eleccion = char.Parse(Console.ReadLine());
-
-            if (eleccion == 'S')
-            {
-                Console.Clear();
-                Console.WriteLine();
-                Console.WriteLine("Puedes cambiar a resta digitando '-'");
-                Console.WriteLine("Puedes cambiar a Multiplicacion digitando '*'");
-                Console.WriteLine("Puedes cambiar a division digitando '/'");
-                Console.WriteLine("Puedes quedar en suma digitando '+'");
-                Console.WriteLine("Puedes finalizar el programa en suma digitando cualquier cosa que no sea lo anterior");
-                eleccion = char.Parse(Console.ReadLine());
-            }
-            else if (eleccion == 'N')
-            {
-                Console.WriteLine("Los numeros estaban en");
-            }
-            else
-            {
-                Console.WriteLine();
-                Console.WriteLine("Digita 'N' o 'S'");
-                Console.WriteLine("Elige: ");
-                eleccion = char.Parse(Console.ReadLine());
-            }
+            return eleccion;
         }
     }
 }
